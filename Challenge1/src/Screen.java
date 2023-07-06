@@ -1,28 +1,26 @@
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.util.ArrayList;
 
-public class Window {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
+import java.awt.event.ActionEvent;
+
+public class Screen {
 
 	private JFrame frame;
 	private JTextField fieldFrase;
 	private JTextField fieldFraseInversa;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
-		String frase;
-		String[] palavra;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Window window = new Window();
+					Screen window = new Screen();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,13 +29,10 @@ public class Window {
 		});
 	}
 
-	public Window() {
+	public Screen() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
@@ -50,25 +45,23 @@ public class Window {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Insira a frase: ");
-		lblNewLabel_1.setBounds(40, 86, 80, 14);
+		lblNewLabel_1.setBounds(40, 86, 91, 14);
 		frame.getContentPane().add(lblNewLabel_1);
-		
-		fieldFrase = new JTextField();
-		fieldFrase.setBounds(130, 83, 244, 20);
-		frame.getContentPane().add(fieldFrase);
-		fieldFrase.setColumns(10);
-		
+
 		
 		JButton btnReverter = new JButton("Reverter frase");
+		btnReverter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String frase = fieldFrase.getText();
+				String[] palavra = frase.split(" ");
+				ArrayList<String> listaPalavrasInvertidas = reverterFrase(palavra);
+				String fraseInversa = String.join(" ", listaPalavrasInvertidas);
+		        fieldFraseInversa.setText(fraseInversa);
+			}
+		});
 		btnReverter.setBounds(166, 160, 120, 23);
 		frame.getContentPane().add(btnReverter);
-		
-		fieldFraseInversa = new JTextField();
-		fieldFraseInversa.setEditable(false);
-		fieldFraseInversa.setBounds(130, 112, 244, 20);
-		frame.getContentPane().add(fieldFraseInversa);
-		fieldFraseInversa.setColumns(10);
-		
+	
 		JLabel lblNewLabel_2 = new JLabel("Frase inversa:");
 		lblNewLabel_2.setBounds(40, 115, 80, 14);
 		frame.getContentPane().add(lblNewLabel_2);
@@ -76,13 +69,28 @@ public class Window {
 		JButton bntVoltar = new JButton("Voltar");
 		bntVoltar.setBounds(31, 210, 89, 23);
 		frame.getContentPane().add(bntVoltar);
+		
+		fieldFrase = new JTextField();
+		fieldFrase.setBounds(141, 83, 254, 20);
+		frame.getContentPane().add(fieldFrase);
+		fieldFrase.setColumns(10);
+		
+		fieldFraseInversa = new JTextField();
+		fieldFraseInversa.setEditable(false);
+		fieldFraseInversa.setBounds(141, 112, 254, 20);
+		frame.getContentPane().add(fieldFraseInversa);
+		fieldFraseInversa.setColumns(10);
 	}
 	
 	public static ArrayList<String> reverterFrase(String[] palavra){
 		ArrayList<String> listaPalavras = new ArrayList();
+		String fraseFinal[];
 		for (int i  = palavra.length -1; i>=0; i--) {
 			listaPalavras.add(palavra[i]);
 		}
+		for(String fraseInversa : listaPalavras) {
+			System.out.print(fraseInversa+" ");
+		}	
 		return listaPalavras;
 	}
 }
