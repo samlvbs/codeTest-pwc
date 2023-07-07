@@ -1,5 +1,6 @@
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Window;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -7,10 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
+
 import java.awt.event.ActionEvent;
 
-public class Screen {
+public class Desafio1 {
 
 	private JFrame frame;
 	private JTextField fieldFrase;
@@ -20,7 +21,7 @@ public class Screen {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Screen window = new Screen();
+					Desafio1 window = new Desafio1();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,7 +30,7 @@ public class Screen {
 		});
 	}
 
-	public Screen() {
+	public Desafio1() {
 		initialize();
 	}
 
@@ -39,7 +40,7 @@ public class Screen {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Reverta a ordem da frase");
+		JLabel lblNewLabel = new JLabel("Inverter a ordem da frase");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.setBounds(120, 30, 215, 14);
 		frame.getContentPane().add(lblNewLabel);
@@ -67,6 +68,13 @@ public class Screen {
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JButton bntVoltar = new JButton("Voltar");
+		bntVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Home window = new Home();
+				window.getFrame().setVisible(true);
+				frame.dispose();
+			}
+		});
 		bntVoltar.setBounds(31, 210, 89, 23);
 		frame.getContentPane().add(bntVoltar);
 		
@@ -84,7 +92,6 @@ public class Screen {
 	
 	public static ArrayList<String> reverterFrase(String[] palavra){
 		ArrayList<String> listaPalavras = new ArrayList();
-		String fraseFinal[];
 		for (int i  = palavra.length -1; i>=0; i--) {
 			listaPalavras.add(palavra[i]);
 		}
@@ -92,5 +99,13 @@ public class Screen {
 			System.out.print(fraseInversa+" ");
 		}	
 		return listaPalavras;
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 }
