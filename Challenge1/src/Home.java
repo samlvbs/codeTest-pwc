@@ -49,6 +49,13 @@ public class Home {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnDesafio2 = new JButton("Desafio 2");
+		btnDesafio2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Desafio2 window = new Desafio2();
+				window.getFrame().setVisible(true);
+				frame.dispose();
+			}
+		});
 		btnDesafio2.setBounds(398, 87, 89, 23);
 		frame.getContentPane().add(btnDesafio2);
 		

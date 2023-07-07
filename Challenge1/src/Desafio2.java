@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.awt.event.ActionEvent;
 
 public class Desafio2 {
@@ -70,36 +71,44 @@ public class Desafio2 {
 			public void actionPerformed(ActionEvent e) {
 				String frase = fieldFrase.getText();
 				String[] palavras = frase.split("");
-				ArrayList<String> listaPalavras = new ArrayList();
-				removerCaracteres(palavras);
-				
+				ArrayList<String> palavrasFormatadas = new ArrayList();
+				palavrasFormatadas = removerCaracteres(palavras);
+				String saidaFormatada = String.join("", palavrasFormatadas);
+				fieldRemovidos.setText(saidaFormatada);
 			}
 		});
 		btnRemover.setBounds(161, 147, 93, 23);
 		frame.getContentPane().add(btnRemover);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Home window = new Home();
+				window.getFrame().setVisible(true);
+				frame.dispose();
+			}
+		});
 		btnVoltar.setBounds(25, 207, 93, 23);
 		frame.getContentPane().add(btnVoltar);
 	}
 	
 	public static ArrayList<String> removerCaracteres(String[] palavras){
-		ArrayList<String> listaPalavras = new ArrayList();
-		String palavraFormatada;
-		String caractere;
-		for(int i = 0; i < palavras.length; i++) {
-			listaPalavras.add(palavras[i]);
-		}
-		for(int i = 0; i<listaPalavras.size(); i++) {
-			caractere = listaPalavras.get(i);
-			for(int j = 0; j<listaPalavras.size(); j++) {
-				if (caractere.equals(listaPalavras.get(j))) {
-					listaPalavras.remove(j);
-				}
-			}		
-		}
-		palavraFormatada = String.join(" ", listaPalavras); 
-		System.out.println(palavraFormatada);
-		return listaPalavras;
+		ArrayList<String> listaPalavras = new ArrayList<>();
+        HashSet<String> caracteres = new HashSet<>();
+        
+        for (String palavra : palavras) {
+            if (!caracteres.contains(palavra)) {
+                listaPalavras.add(palavra);
+                caracteres.add(palavra);
+            }
+        }
+        return listaPalavras;
+	}
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 }
