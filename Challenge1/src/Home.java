@@ -27,16 +27,12 @@ public class Home {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+
 	public Home() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 524, 327);
@@ -92,6 +88,13 @@ public class Home {
 		frame.getContentPane().add(lblNewLabel_1_1_2);
 		
 		JButton btnDesafio4 = new JButton("Desafio 4");
+		btnDesafio4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Desafio4 window = new Desafio4();
+				window.getFrame().setVisible(true);
+				frame.dispose();
+			}
+		});
 		btnDesafio4.setBounds(398, 155, 89, 23);
 		frame.getContentPane().add(btnDesafio4);
 		

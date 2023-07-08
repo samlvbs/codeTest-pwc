@@ -16,9 +16,6 @@ public class Desafio2 {
 	private JTextField fieldFrase;
 	private JTextField fieldRemovidos;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -52,11 +49,12 @@ public class Desafio2 {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		fieldFrase = new JTextField();
+		fieldFrase.setText("Hello, World!");
 		fieldFrase.setBounds(161, 70, 218, 20);
 		frame.getContentPane().add(fieldFrase);
 		fieldFrase.setColumns(10);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Caracteres removidos: ");
+		JLabel lblNewLabel_1_1 = new JLabel("Frase formatada: ");
 		lblNewLabel_1_1.setBounds(25, 101, 126, 14);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		

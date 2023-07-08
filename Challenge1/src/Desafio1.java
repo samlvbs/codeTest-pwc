@@ -79,6 +79,7 @@ public class Desafio1 {
 		frame.getContentPane().add(bntVoltar);
 		
 		fieldFrase = new JTextField();
+		fieldFrase.setText("Hello, World! OpenAI is amazing.");
 		fieldFrase.setBounds(141, 83, 254, 20);
 		frame.getContentPane().add(fieldFrase);
 		fieldFrase.setColumns(10);
