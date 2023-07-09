@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Desafio3 {
 
-	private JFrame frame;
+	private JFrame frmCodeTest;
 	private JTextField fieldFrase;
 	private JTextField fieldPalindromo;
 
@@ -20,7 +20,7 @@ public class Desafio3 {
 			public void run() {
 				try {
 					Desafio3 window = new Desafio3();
-					window.frame.setVisible(true);
+					window.frmCodeTest.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -33,35 +33,36 @@ public class Desafio3 {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmCodeTest = new JFrame();
+		frmCodeTest.setTitle("Code Test - Samuel Vilas Boas - Desafio 3");
+		frmCodeTest.setBounds(100, 100, 450, 300);
+		frmCodeTest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCodeTest.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Encontrar o maior palindromo");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.setBounds(96, 22, 247, 34);
-		frame.getContentPane().add(lblNewLabel);
+		frmCodeTest.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Insira a frase:");
 		lblNewLabel_1.setBounds(33, 80, 80, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		frmCodeTest.getContentPane().add(lblNewLabel_1);
 		
 		fieldFrase = new JTextField();
 		fieldFrase.setText("babad");
 		fieldFrase.setBounds(151, 77, 247, 20);
-		frame.getContentPane().add(fieldFrase);
+		frmCodeTest.getContentPane().add(fieldFrase);
 		fieldFrase.setColumns(10);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Maior palindromo: ");
 		lblNewLabel_1_1.setBounds(33, 108, 108, 14);
-		frame.getContentPane().add(lblNewLabel_1_1);
+		frmCodeTest.getContentPane().add(lblNewLabel_1_1);
 		
 		fieldPalindromo = new JTextField();
 		fieldPalindromo.setEditable(false);
 		fieldPalindromo.setColumns(10);
 		fieldPalindromo.setBounds(151, 105, 247, 20);
-		frame.getContentPane().add(fieldPalindromo);
+		frmCodeTest.getContentPane().add(fieldPalindromo);
 		
 		JButton btnEncontrar = new JButton("Encontrar");
 		btnEncontrar.addActionListener(new ActionListener() {
@@ -71,19 +72,19 @@ public class Desafio3 {
 				fieldPalindromo.setText(palindromo);
 			}
 		});
-		btnEncontrar.setBounds(167, 156, 89, 23);
-		frame.getContentPane().add(btnEncontrar);
+		btnEncontrar.setBounds(176, 156, 108, 23);
+		frmCodeTest.getContentPane().add(btnEncontrar);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Home window = new Home();
 				window.getFrame().setVisible(true);
-				frame.dispose();
+				frmCodeTest.dispose();
 			}
 		});
 		btnVoltar.setBounds(10, 207, 89, 23);
-		frame.getContentPane().add(btnVoltar);
+		frmCodeTest.getContentPane().add(btnVoltar);
 	}
 	
 	public static boolean verificaPalindromo(String palavra) {
@@ -125,10 +126,10 @@ public class Desafio3 {
     }
 	
 	public JFrame getFrame() {
-		return frame;
+		return frmCodeTest;
 	}
 
 	public void setFrame(JFrame frame) {
-		this.frame = frame;
+		this.frmCodeTest = frame;
 	}
 }

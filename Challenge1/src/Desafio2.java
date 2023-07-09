@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 
 public class Desafio2 {
 
-	private JFrame frame;
+	private JFrame frmCodeTest;
 	private JTextField fieldFrase;
 	private JTextField fieldRemovidos;
 
@@ -21,7 +21,7 @@ public class Desafio2 {
 			public void run() {
 				try {
 					Desafio2 window = new Desafio2();
-					window.frame.setVisible(true);
+					window.frmCodeTest.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -34,35 +34,36 @@ public class Desafio2 {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmCodeTest = new JFrame();
+		frmCodeTest.setTitle("Code Test - Samuel Vilas Boas - Desafio 2");
+		frmCodeTest.setBounds(100, 100, 450, 300);
+		frmCodeTest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCodeTest.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Remover caracteres duplicados");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel.setBounds(70, 21, 309, 25);
-		frame.getContentPane().add(lblNewLabel);
+		frmCodeTest.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Insira a frase: ");
 		lblNewLabel_1.setBounds(25, 73, 103, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		frmCodeTest.getContentPane().add(lblNewLabel_1);
 		
 		fieldFrase = new JTextField();
 		fieldFrase.setText("Hello, World!");
 		fieldFrase.setBounds(161, 70, 218, 20);
-		frame.getContentPane().add(fieldFrase);
+		frmCodeTest.getContentPane().add(fieldFrase);
 		fieldFrase.setColumns(10);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Frase formatada: ");
 		lblNewLabel_1_1.setBounds(25, 101, 126, 14);
-		frame.getContentPane().add(lblNewLabel_1_1);
+		frmCodeTest.getContentPane().add(lblNewLabel_1_1);
 		
 		fieldRemovidos = new JTextField();
 		fieldRemovidos.setEditable(false);
 		fieldRemovidos.setColumns(10);
 		fieldRemovidos.setBounds(161, 98, 218, 20);
-		frame.getContentPane().add(fieldRemovidos);
+		frmCodeTest.getContentPane().add(fieldRemovidos);
 		
 		JButton btnRemover = new JButton("Remover");
 		btnRemover.addActionListener(new ActionListener() {
@@ -76,18 +77,18 @@ public class Desafio2 {
 			}
 		});
 		btnRemover.setBounds(161, 147, 93, 23);
-		frame.getContentPane().add(btnRemover);
+		frmCodeTest.getContentPane().add(btnRemover);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Home window = new Home();
 				window.getFrame().setVisible(true);
-				frame.dispose();
+				frmCodeTest.dispose();
 			}
 		});
 		btnVoltar.setBounds(25, 207, 93, 23);
-		frame.getContentPane().add(btnVoltar);
+		frmCodeTest.getContentPane().add(btnVoltar);
 	}
 	
 	public static ArrayList<String> removerCaracteres(String[] palavras){
@@ -103,10 +104,10 @@ public class Desafio2 {
         return listaPalavras;
 	}
 	public JFrame getFrame() {
-		return frame;
+		return frmCodeTest;
 	}
 
 	public void setFrame(JFrame frame) {
-		this.frame = frame;
+		this.frmCodeTest = frame;
 	}
 }

@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 
 public class Desafio4 {
 
-	private JFrame frame;
+	private JFrame frmCodeTest;
 	private JTextField fieldFrase;
 	private JTextField fieldFormatada;
 
@@ -23,7 +23,7 @@ public class Desafio4 {
 			public void run() {
 				try {
 					Desafio4 window = new Desafio4();
-					window.frame.setVisible(true);
+					window.frmCodeTest.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -42,43 +42,44 @@ public class Desafio4 {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmCodeTest = new JFrame();
+		frmCodeTest.setTitle("Code Test - Samuel Vilas Boas - Desafio 4");
+		frmCodeTest.setBounds(100, 100, 450, 300);
+		frmCodeTest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCodeTest.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Colocar a primeira letra da frase em maiusculo");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.setBounds(30, 23, 379, 22);
-		frame.getContentPane().add(lblNewLabel);
+		frmCodeTest.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Insira a frase: ");
 		lblNewLabel_1.setBounds(10, 87, 50, -17);
-		frame.getContentPane().add(lblNewLabel_1);
+		frmCodeTest.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Insira a frase");
 		lblNewLabel_2.setBounds(30, 81, 26, -7);
-		frame.getContentPane().add(lblNewLabel_2);
+		frmCodeTest.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Insira a frase:");
 		lblNewLabel_3.setBounds(40, 75, 100, 14);
-		frame.getContentPane().add(lblNewLabel_3);
+		frmCodeTest.getContentPane().add(lblNewLabel_3);
 		
 		fieldFrase = new JTextField();
 		fieldFrase.setText("hello. how are you? i'm fine, tank you.");
 		fieldFrase.setBounds(143, 72, 266, 20);
-		frame.getContentPane().add(fieldFrase);
+		frmCodeTest.getContentPane().add(fieldFrase);
 		fieldFrase.setColumns(10);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Frase formatada:");
 		lblNewLabel_3_1.setBounds(40, 103, 100, 14);
-		frame.getContentPane().add(lblNewLabel_3_1);
+		frmCodeTest.getContentPane().add(lblNewLabel_3_1);
 		
 		fieldFormatada = new JTextField();
 		fieldFormatada.setEditable(false);
 		fieldFormatada.setColumns(10);
 		fieldFormatada.setBounds(143, 100, 266, 20);
-		frame.getContentPane().add(fieldFormatada);
+		frmCodeTest.getContentPane().add(fieldFormatada);
 		
 		JButton btnFormatar = new JButton("Formatar");
 		btnFormatar.addActionListener(new ActionListener() {
@@ -92,18 +93,18 @@ public class Desafio4 {
 			}
 		});
 		btnFormatar.setBounds(172, 154, 89, 23);
-		frame.getContentPane().add(btnFormatar);
+		frmCodeTest.getContentPane().add(btnFormatar);
 		
 		JButton bntVoltar = new JButton("Voltar");
 		bntVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Home window = new Home();
 				window.getFrame().setVisible(true);
-				frame.dispose();
+				frmCodeTest.dispose();
 			}
 		});
 		bntVoltar.setBounds(23, 203, 89, 23);
-		frame.getContentPane().add(bntVoltar);
+		frmCodeTest.getContentPane().add(bntVoltar);
 	}
 	
 	public static ArrayList<String> formatarFrase(String[] palavras) {
@@ -126,10 +127,10 @@ public class Desafio4 {
     }
 	
 	public JFrame getFrame() {
-		return frame;
+		return frmCodeTest;
 	}
 
 	public void setFrame(JFrame frame) {
-		this.frame = frame;
+		this.frmCodeTest = frame;
 	}
 }

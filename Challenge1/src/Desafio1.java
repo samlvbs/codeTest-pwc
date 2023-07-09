@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 
 public class Desafio1 {
 
-	private JFrame frame;
+	private JFrame frmCodeTest;
 	private JTextField fieldFrase;
 	private JTextField fieldFraseInversa;
 
@@ -22,7 +22,7 @@ public class Desafio1 {
 			public void run() {
 				try {
 					Desafio1 window = new Desafio1();
-					window.frame.setVisible(true);
+					window.frmCodeTest.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,22 +35,23 @@ public class Desafio1 {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmCodeTest = new JFrame();
+		frmCodeTest.setTitle("Code Test - Samuel Vilas Boas - Desafio 1");
+		frmCodeTest.setBounds(100, 100, 450, 300);
+		frmCodeTest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCodeTest.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Inverter a ordem da frase");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.setBounds(120, 30, 215, 14);
-		frame.getContentPane().add(lblNewLabel);
+		frmCodeTest.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Insira a frase: ");
 		lblNewLabel_1.setBounds(40, 86, 91, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		frmCodeTest.getContentPane().add(lblNewLabel_1);
 
 		
-		JButton btnReverter = new JButton("Reverter frase");
+		JButton btnReverter = new JButton("Inverter frase");
 		btnReverter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String frase = fieldFrase.getText();
@@ -61,33 +62,33 @@ public class Desafio1 {
 			}
 		});
 		btnReverter.setBounds(166, 160, 120, 23);
-		frame.getContentPane().add(btnReverter);
+		frmCodeTest.getContentPane().add(btnReverter);
 	
 		JLabel lblNewLabel_2 = new JLabel("Frase inversa:");
 		lblNewLabel_2.setBounds(40, 115, 80, 14);
-		frame.getContentPane().add(lblNewLabel_2);
+		frmCodeTest.getContentPane().add(lblNewLabel_2);
 		
 		JButton bntVoltar = new JButton("Voltar");
 		bntVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Home window = new Home();
 				window.getFrame().setVisible(true);
-				frame.dispose();
+				frmCodeTest.dispose();
 			}
 		});
 		bntVoltar.setBounds(31, 210, 89, 23);
-		frame.getContentPane().add(bntVoltar);
+		frmCodeTest.getContentPane().add(bntVoltar);
 		
 		fieldFrase = new JTextField();
 		fieldFrase.setText("Hello, World! OpenAI is amazing.");
 		fieldFrase.setBounds(141, 83, 254, 20);
-		frame.getContentPane().add(fieldFrase);
+		frmCodeTest.getContentPane().add(fieldFrase);
 		fieldFrase.setColumns(10);
 		
 		fieldFraseInversa = new JTextField();
 		fieldFraseInversa.setEditable(false);
 		fieldFraseInversa.setBounds(141, 112, 254, 20);
-		frame.getContentPane().add(fieldFraseInversa);
+		frmCodeTest.getContentPane().add(fieldFraseInversa);
 		fieldFraseInversa.setColumns(10);
 	}
 	
@@ -103,10 +104,10 @@ public class Desafio1 {
 	}
 
 	public JFrame getFrame() {
-		return frame;
+		return frmCodeTest;
 	}
 
 	public void setFrame(JFrame frame) {
-		this.frame = frame;
+		this.frmCodeTest = frame;
 	}
 }
