@@ -80,6 +80,13 @@ public class Home {
 		frame.getContentPane().add(lblNewLabel_1_1_1);
 		
 		JButton btnDesafio3 = new JButton("Desafio 3");
+		btnDesafio3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Desafio3 window = new Desafio3();
+				window.getFrame().setVisible(true);
+				frame.dispose();
+			}
+		});
 		btnDesafio3.setBounds(398, 121, 89, 23);
 		frame.getContentPane().add(btnDesafio3);
 		
@@ -103,6 +110,13 @@ public class Home {
 		frame.getContentPane().add(lblNewLabel_1_1_3);
 		
 		JButton btnDesafio5 = new JButton("Desafio 5");
+		btnDesafio5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Desafio5 window = new Desafio5();
+				window.getFrame().setVisible(true);
+				frame.dispose();
+			}
+		});
 		btnDesafio5.setBounds(398, 184, 89, 23);
 		frame.getContentPane().add(btnDesafio5);
 	}
